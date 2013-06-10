@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGRC.BCATools" namespace="SGRC.BCATools">
+
+  <class name="Tax" table="Taxes" lazy="true">
+    <id name="Folio" column="folio">
+      <generator class="assigned"/>
+    </id>
+    
+    <property name="Jurisdiction" column="jurisdiction"/>
+    <property name="Roll" column="roll"/>
+
+    <property name="MunicipalClassCode1" column="m_class_code1"/>
+    <property name="MunicipalClassDescription1" column="m_class_desc1"/>
+    <property name="MunicipalGrossLand1" column="m_gross_land1"/>
+    <property name="MunicipalGrossImprovement1" column="m_gross_impr1"/>
+    <property name="MunicipalExemptLand1" column="m_exempt_land1"/>
+    <property name="MunicipalExemptImprovement1" column="m_exempt_impr1"/>
+
+    <property name="MunicipalClassCode2" column="m_class_code2"/>
+    <property name="MunicipalClassDescription2" column="m_class_desc2"/>
+    <property name="MunicipalGrossLand2" column="m_gross_land2"/>
+    <property name="MunicipalGrossImprovement2" column="m_gross_impr2"/>
+    <property name="MunicipalExemptLand2" column="m_exempt_land2"/>
+    <property name="MunicipalExemptImprovement2" column="m_exempt_impr2"/>
+
+    <property name="MunicipalClassCode3" column="m_class_code3"/>
+    <property name="MunicipalClassDescription3" column="m_class_desc3"/>
+    <property name="MunicipalGrossLand3" column="m_gross_land3"/>
+    <property name="MunicipalGrossImprovement3" column="m_gross_impr3"/>
+    <property name="MunicipalExemptLand3" column="m_exempt_land3"/>
+    <property name="MunicipalExemptImprovement3" column="m_exempt_impr3"/>
+    
+    <property name="MunicipalClassCode4" column="m_class_code4"/>
+    <property name="MunicipalClassDescription4" column="m_class_desc4"/>
+    <property name="MunicipalGrossLand4" column="m_gross_land4"/>
+    <property name="MunicipalGrossImprovement4" column="m_gross_impr4"/>
+    <property name="MunicipalExemptLand4" column="m_exempt_land4"/>
+    <property name="MunicipalExemptImprovement4" column="m_exempt_impr4"/>
+
+    <property name="SchoolClassCode1" column="s_class_code1"/>
+    <property name="SchoolClassDescription1" column="s_class_desc1"/>
+    <property name="SchoolGrossLand1" column="s_gross_land1"/>
+    <property name="SchoolGrossImprovement1" column="s_gross_impr1"/>
+    <property name="SchoolExemptLand1" column="s_exempt_land1"/>
+    <property name="SchoolExemptImprovement1" column="s_exempt_impr1"/>
+
+    <property name="SchoolClassCode2" column="s_class_code2"/>
+    <property name="SchoolClassDescription2" column="s_class_desc2"/>
+    <property name="SchoolGrossLand2" column="s_gross_land2"/>
+    <property name="SchoolGrossImprovement2" column="s_gross_impr2"/>
+    <property name="SchoolExemptLand2" column="s_exempt_land2"/>
+    <property name="SchoolExemptImprovement2" column="s_exempt_impr2"/>
+
+    <property name="SchoolClassCode3" column="s_class_code3"/>
+    <property name="SchoolClassDescription3" column="s_class_desc3"/>
+    <property name="SchoolGrossLand3" column="s_gross_land3"/>
+    <property name="SchoolGrossImprovement3" column="s_gross_impr3"/>
+    <property name="SchoolExemptLand3" column="s_exempt_land3"/>
+    <property name="SchoolExemptImprovement3" column="s_exempt_impr3"/>
+
+    <property name="SchoolClassCode4" column="s_class_code4"/>
+    <property name="SchoolClassDescription4" column="s_class_desc4"/>
+    <property name="SchoolGrossLand4" column="s_gross_land4"/>
+    <property name="SchoolGrossImprovement4" column="s_gross_impr4"/>
+    <property name="SchoolExemptLand4" column="s_exempt_land4"/>
+    <property name="SchoolExemptImprovement4" column="s_exempt_impr4"/>
+  </class>
+
+</hibernate-mapping>
