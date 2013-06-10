@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGRC.BCATools" namespace="SGRC.BCATools">
+
+  <class name="Assessment" table="Assessment" lazy="true">
+    <id name="Folio" column="folio">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="Jurisdiction" column="jurisdiction"/>
+    <property name="Roll" column="roll"/>
+
+    <property name="SchoolDistrict" column="school_dist"/>
+    <property name="ElectoralArea" column="electoral_area"/>
+    <property name="ImprovementDistrict" column="improve_dist"/>
+    <property name="LocalArea" column="local_area"/>
+    <property name="SpecifiedArea" column="specified_area"/>
+    <property name="LandUseCode" column="landuse_code"/>
+    <property name="ActualUse" column="actuse_code"/>
+    <property name="RollYear" column="roll_year"/>
+    
+    <property name="ExemptCode1" column="exempt_code1"/>
+    <property name="LandClass1" column="land_class1"/>
+    <property name="LandValue1" column="land_value1"/>
+    <property name="ImprovementClass1" column="improve_class1"/>
+    <property name="ImprovementValue1" column="improve_value1"/>
+
+    <property name="ExemptCode2" column="exempt_code2"/>
+    <property name="LandClass2" column="land_class2"/>
+    <property name="LandValue2" column="land_value2"/>
+    <property name="ImprovementClass2" column="improve_class2"/>
+    <property name="ImprovementValue2" column="improve_value2"/>
+
+    <property name="ExemptCode3" column="exempt_code3"/>
+    <property name="LandClass3" column="land_class3"/>
+    <property name="LandValue3" column="land_value3"/>
+    <property name="ImprovementClass3" column="improve_class3"/>
+    <property name="ImprovementValue3" column="improve_value3"/>
+
+    <property name="ExtendedLand1" column="ex_land1"/>
+    <property name="ExtendedImprovement1" column="ex_improvement1"/>
+    <property name="ExtendedLand2" column="ex_land2"/>
+    <property name="ExtendedImprovement2" column="ex_improvement2"/>
+    <property name="ExtendedLand3" column="ex_land3"/>
+    <property name="ExtendedImprovement3" column="ex_improvement3"/>
+  </class>
+</hibernate-mapping>
+

@@ -1,0 +1,38 @@
+﻿<Window x:Class="SGRC.BCATools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BCA Data Advice Toolset" Height="214" Width="720" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Icon="/BCADataAdviceToolset;component/icons/Disco.ico">
+    <Grid Width="700">
+        <ToolBarTray Background="White" Margin="0,0,0,0">
+            <ToolBar Width="700"  Band="1" BandIndex="1">
+                <Button VerticalAlignment="Top" HorizontalAlignment="Left" Name="btnImportYear" Click="btnImportYear_Click">
+                    <StackPanel Orientation="Horizontal" Width="208">
+                        <Image Source="/BCADataAdviceToolset;component/icons/import.png" Width="48" Height="48" Margin="0,0,10,0"/>
+                        <TextBlock Height="18">Import Annual Data Advice</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button VerticalAlignment="Top" HorizontalAlignment="Left" Name="btnImportMonth" Click="btnImportMonth_Click">
+                    <StackPanel Orientation="Horizontal" Width="264">
+                        <Image Source="icons/import.png" Width="48" Height="48" Margin="0,0,10,0"/>
+                        <TextBlock Height="18">Import Weekly/Monthly Data Advice</TextBlock>
+                    </StackPanel>
+                </Button><Label Width="65"/>
+                <Button VerticalAlignment="Top" Name="btnAbout" Click="btnAbout_Click">
+                    <StackPanel Orientation="Horizontal" Width="120" >
+                        <Image Source="/BCADataAdviceToolset;component/icons/About.png" Width="48" Height="48" Margin="0,0,10,0"/>
+                        <TextBlock Height="18">About...</TextBlock>
+                    </StackPanel>
+                </Button>
+           
+            </ToolBar>
+        </ToolBarTray>
+        
+        <TextBox Height="23" Margin="146,70,0,82" Name="txtSourceDatFile" HorizontalAlignment="Left" Width="503" PreviewMouseLeftButtonDown="txtSourceDatFile_PreviewMouseLeftButtonDown" />
+        <TextBox Height="23" Margin="146,99,0,53" Name="txtDestinationDBFile" HorizontalAlignment="Left" Width="503" PreviewMouseLeftButtonDown="txtDestinationDBFile_PreviewMouseLeftButtonDown" />
+        <TextBox Height="23" Margin="12,140,12,12" Name="txtLog" IsReadOnly="True" />
+        <Button Content="..." Height="23" Margin="0,70,12,82" Name="btnChooseSourceDatFile" Click="btnChooseSourceDatFile_Click" HorizontalAlignment="Right" Width="25" />
+        <Button Content="..." Height="23" Margin="0,99,12,53" Name="btnChooseDestinationDbFile" Click="btnChooseDestinationDbFile_Click" HorizontalAlignment="Right" Width="25" />
+        <Label Content="Source Data Advice" Height="28" HorizontalAlignment="Left" Margin="22,70,0,0" Name="label1" VerticalAlignment="Top" Width="118" />
+        <Label Content="Destination Database" Height="28" HorizontalAlignment="Left" Margin="12,99,0,0" Name="label2" VerticalAlignment="Top" Width="128" />
+    </Grid>
+</Window>

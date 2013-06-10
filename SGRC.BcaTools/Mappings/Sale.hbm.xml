@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SGRC.BCATools" namespace="SGRC.BCATools">
+
+  <class name="Sale" table="Sales" lazy="true">
+    <id name="Folio" column="folio">
+      <generator class="assigned"/>
+    </id>
+    
+    <property name="Jurisdiction" column="jurisdiction"/>
+    <property name="Roll" column="roll"/>
+
+    <property name="Certificate1" column="certificate1"/>
+    <property name="Type1" column="type1"/>
+    <property name="Date1" column="date1"/>
+    <property name="Price1" column="price1"/>
+
+    <property name="Certificate2" column="certificate2"/>
+    <property name="Type2" column="type2"/>
+    <property name="Date2" column="date2"/>
+    <property name="Price2" column="price2"/>
+
+    <property name="Certificate3" column="certificate3"/>
+    <property name="Type3" column="type3"/>
+    <property name="Date3" column="date3"/>
+    <property name="Price3" column="price3"/>
+  </class>
+
+</hibernate-mapping>
