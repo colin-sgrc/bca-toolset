@@ -9,6 +9,12 @@ The app is written in C# 3.5 and uses NHibernate to write to any database, altho
 
 There are two applications: wpf gui and command-line.  See bcatools app for command line usage.
 
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 3 of the License, or (at your option)
+any later version.
+
+
 To install:
 
 Choose to download msi from latest downloads directory.  Ensure the application is always run as admin (otherwise log files don't get created...might be issue with my wix configuration)
