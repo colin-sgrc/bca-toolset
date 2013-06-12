@@ -7,6 +7,8 @@ It was written by the Selkirk Geospatial Research Centre (SGRC) for the Regional
 
 The app is written in C# 3.5 and uses NHibernate to write to any database, although currently configured to send data to a MS Access database.  Logging is done with log4net.  The msi packaging is done with WixToolset 3.6.
 
+There are two applications: wpf gui and command-line.  See bcatools app for command line usage.
+
 To install:
 
 Choose to download msi from latest downloads directory.  Ensure the application is always run as admin (otherwise log files don't get created...might be issue with my wix configuration)
