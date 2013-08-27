@@ -335,36 +335,41 @@ namespace SGRC.BCATools
             legal.StreetName = NullableParser.ParseString(legalStruct.StreetName);
             legal.PID = NullableParser.ParseString(legalStruct.PropertyIdentificationNumber);
 
-            legal.LotSizeCode = NullableParser.TryParseInt(legalStruct.LotSizeKey).GetValueOrDefault(0);
-
-            switch (legal.LotSizeCode)
+            //sometimes lot size doesn't come in.  if not, ignore rest of fields
+            int lotSizeKey;
+            if (int.TryParse(legalStruct.LotSizeKey, out lotSizeKey))
             {
-                case 0:
-                    legal.AreaUnit = "wxd";
-                    legal.Width = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(0, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
-                    legal.Depth = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(7, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
-                    break;
+                legal.LotSizeCode = NullableParser.TryParseInt(legalStruct.LotSizeKey).Value;
 
-                case 1:
-                    legal.AreaUnit = "dim";
-                    legal.Width = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(0, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
-                    legal.Depth = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(7, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
-                    break;
+                switch (legal.LotSizeCode)
+                {
+                    case 0:
+                        legal.AreaUnit = "wxd";
+                        legal.Width = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(0, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
+                        legal.Depth = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(7, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
+                        break;
 
-                case 2:
-                    legal.AreaUnit = "sqf";
-                    legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
-                    break;
+                    case 1:
+                        legal.AreaUnit = "dim";
+                        legal.Width = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(0, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
+                        legal.Depth = Math.Round(NullableParser.TryParseDouble(legalStruct.LotSize.Substring(7, 7)).GetValueOrDefault(0), MidpointRounding.ToEven);
+                        break;
 
-                case 3:
-                    legal.AreaUnit = "acr";
-                    legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
-                    break;
+                    case 2:
+                        legal.AreaUnit = "sqf";
+                        legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
+                        break;
 
-                default:
-                    legal.AreaUnit = "ff";
-                    legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
-                    break;
+                    case 3:
+                        legal.AreaUnit = "acr";
+                        legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
+                        break;
+
+                    default:
+                        legal.AreaUnit = "ff";
+                        legal.LotArea = NullableParser.ParseString(legalStruct.LotSize);
+                        break;
+                }
             }
         }
 
