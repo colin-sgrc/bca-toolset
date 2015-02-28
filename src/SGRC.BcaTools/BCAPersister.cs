@@ -128,9 +128,12 @@ namespace SGRC.BCATools
                 }
 
                 //delete
-                deleted = session.CreateQuery(string.Format("delete from {0} as e where e.Folio IN (:key)", entityName))
-                    .SetParameterList("key", foliosToDelete.ToArray())
-                    .ExecuteUpdate();
+                if (foliosToDelete.Count > 0)
+                {
+                    deleted = session.CreateQuery(string.Format("delete from {0} as e where e.Folio IN (:key)", entityName))
+                        .SetParameterList("key", foliosToDelete.ToArray())
+                        .ExecuteUpdate();
+                }
 
                 transaction.Commit();
             }

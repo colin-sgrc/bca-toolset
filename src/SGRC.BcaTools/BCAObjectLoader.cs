@@ -56,6 +56,9 @@ namespace SGRC.BCATools
         private List<string> _ownerRecordNos;
         private List<string> _taxRecords;
 
+        //quick lookup list
+        private List<string> _folios;
+
         //tax class code mapping
         //TODO: probably split this out to file
         Dictionary<int, string> _taxClassMap = new Dictionary<int, string>()
@@ -88,6 +91,8 @@ namespace SGRC.BCATools
 
             _ownerRecordNos = new List<string>();
             _taxRecords = new List<string>();
+
+            _folios = new List<string>();
         }
 
         /// <summary>
@@ -123,30 +128,40 @@ namespace SGRC.BCATools
             int currentRoll = int.Parse(record.AssessmentRollNumber);
             if (_previousRoll.HasValue && _previousRoll.Value != currentRoll)
             {
-                //write the values
-                if (_sale != null)
+                //seems to be a chance of duplicates within data.  if we have already dealt with a folio, then we warn and don't add
+                if (_sale != null &&  _folios.Contains(_sale.Folio))
                 {
-                    SalesList.Add(_sale);
+                    log.Warn(string.Format("Folio {0} duplicate found on line {1}", _sale.Folio, lineIndex));
                 }
-
-                if (_assessment != null)
+                else
                 {
-                    AssessmentList.Add(_assessment);
-                }
+                    //write the values
+                    if (_sale != null)
+                    {
+                        SalesList.Add(_sale);
+                        //add folio
+                        _folios.Add(_sale.Folio);
+                    }
 
-                if (_legal != null)
-                {
-                    LegalList.Add(_legal);
-                }
+                    if (_assessment != null)
+                    {
+                        AssessmentList.Add(_assessment);
+                    }
 
-                if (_owner != null)
-                {
-                    OwnerList.Add(_owner);
-                }
+                    if (_legal != null)
+                    {
+                        LegalList.Add(_legal);
+                    }
 
-                if (_tax != null)
-                {
-                    TaxList.Add(_tax);
+                    if (_owner != null)
+                    {
+                        OwnerList.Add(_owner);
+                    }
+
+                    if (_tax != null)
+                    {
+                        TaxList.Add(_tax);
+                    }
                 }
 
                 //clear them out...start again
@@ -639,19 +654,19 @@ namespace SGRC.BCATools
             string month = date.Substring(4, 2);
 
             DateTime yearResult;
-            if (!DateTime.TryParseExact(year, "yyyy", System.Globalization.DateTimeFormatInfo.CurrentInfo, System.Globalization.DateTimeStyles.None, out yearResult))
+            if (!DateTime.TryParseExact(year, "yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo, System.Globalization.DateTimeStyles.None, out yearResult))
             {
                 return null;
             }
 
             if (month == "00") month = "01";
             DateTime monthResult;
-            if (!DateTime.TryParseExact(month, "mm", System.Globalization.DateTimeFormatInfo.CurrentInfo, System.Globalization.DateTimeStyles.None, out monthResult))
+            if (!DateTime.TryParseExact(month, "mm", System.Globalization.DateTimeFormatInfo.InvariantInfo, System.Globalization.DateTimeStyles.None, out monthResult))
             {
                 return null;
             }
 
-            DateTime retVal = DateTime.ParseExact(string.Format("01/{0}/{1}", month, year), "dd/MM/yyyy", System.Globalization.DateTimeFormatInfo.CurrentInfo);
+            DateTime retVal = DateTime.ParseExact(string.Format("01/{0}/{1}", month, year), "dd/MM/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo);
             return retVal;
         }
 

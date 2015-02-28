@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About" Height="329" Width="520" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid Width="500">
-        <StackPanel Height="302" HorizontalAlignment="Left" Name="dockPanel1" VerticalAlignment="Bottom" Width="498" Margin="1,0,0,-1">
-            <TextBlock Text="ProductName" Height="25" Name="labelProductName" FontSize="12" />
-            <TextBlock Text="Copyright" Height="25" Name="labelCopyright" FontSize="12" />
-            <TextBlock Text="CompanyName" Height="25" Name="labelCompanyName" FontSize="12" />
-            <TextBlock Text="Description" Height="70" TextWrapping="Wrap" Name="labelDescription" FontSize="12" />
+        <StackPanel HorizontalAlignment="Left" Name="dockPanel1" VerticalAlignment="Bottom" Margin="1,0,0,-1">
+            <TextBlock Text="ProductName" Height="25" x:Name="labelProductName" FontSize="12" />
+            <TextBlock Text="Copyright" Height="25" x:Name="labelCopyright" FontSize="12" />
+            <TextBlock Text="CompanyName" Height="25" x:Name="labelCompanyName" FontSize="12" />
+            <TextBlock Text="Description" Height="70" TextWrapping="Wrap" x:Name="labelDescription" FontSize="12" />
             <ScrollViewer CanContentScroll="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Height="136" Width="495">
-                <TextBlock ScrollViewer.CanContentScroll="True" TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="labelLicense" Text="License" FontSize="10" />
+                <TextBlock ScrollViewer.CanContentScroll="True" TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="labelLicense" Text="License" FontSize="10" />
             </ScrollViewer>
         </StackPanel>
         <Grid Name="grid1" Margin="346,0,2,213">
